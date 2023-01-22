@@ -10,6 +10,8 @@ void setup() {
   M5.Lcd.setCursor(20,60);
   M5.Lcd.setTextSize(4);
   M5.Lcd.print("Hello world");
+
+  M5.Lcd.fillRect(100, 100, 50, 60, TFT_GREEN);
 }
 
 void loop() {
