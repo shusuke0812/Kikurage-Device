@@ -5,8 +5,8 @@ void setupShowImage();
 void setupShowText();
 void setupDrawRect();
 
+// put your setup code here, to run once
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(115200);
 
   // initialize UART, Display, Power, microSD card
@@ -15,8 +15,8 @@ void setup() {
   setupShowImage();
 }
 
+// put your main code here, to run repeatedly
 void loop() {
-  // put your main code here, to run repeatedly:
   M5.update(); // have to run for M5Stack button tapped
 
   setupShowImage();
