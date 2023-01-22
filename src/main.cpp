@@ -4,6 +4,7 @@
 void setup() {
   // put your setup code here, to run once:
 
+  // initialize UART, Display, Power, microSD card
   M5.begin();
 
   M5.Lcd.setCursor(20,60);
