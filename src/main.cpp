@@ -17,8 +17,6 @@ void setup() {
 
 // put your main code here, to run repeatedly
 void loop() {
-  M5.update(); // have to run for M5Stack button tapped
-
   setupShowImage();
 }
 
@@ -38,6 +36,8 @@ void setupDrawRect() {
 }
 
 void setupShowImage() {
+  M5.update(); // have to run for M5Stack button tapped
+
   if (M5.BtnA.wasPressed()) {
     M5.Lcd.drawJpgFile(SD, "/Smile.jpg", 0, 0);
   } else if (M5.BtnB.wasPressed()) {
