@@ -9,6 +9,11 @@ Kikurage Cultivation Device
 - Install M5Stack libraries
   - PIO Home > Libraries > M5Stack > Add Project
   - After that theses are set in /.pio/libdeps
+- microSD card
+  - Image Data
+    - An image size must be set 320*240, because M5 libraries does not have zooming image method.
+    - Sad.jpg and Smile.jpg are saved on SD. (Jan, 2023)
+    - format is FAT32
 
 ### Run
 
