@@ -2,6 +2,8 @@
 #include <M5Stack.h>
 
 void setupShowImage();
+void setupShowText();
+void setupDrawRect();
 
 void setup() {
   // put your setup code here, to run once:
