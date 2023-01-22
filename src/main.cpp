@@ -19,7 +19,9 @@ void loop() {
   // put your main code here, to run repeatedly:
 }
 
-// **** sample code ****
+/******
+ * sample code
+ */
 
 void setupShowText() {
   M5.Lcd.setCursor(20,60);
