@@ -4,11 +4,12 @@
 
 MPU9250 IMU;
 
-void setupShowImage();
 void setupShowText();
 void setupDrawRect();
-void setupVolume();
 void setupMPU9250(); // 9 axis sensor
+
+void loopShowImage();
+void loopVolume();
 
 float bfreq = 0;
 
@@ -19,14 +20,13 @@ void setup() {
   // initialize UART, Display, Power, microSD card
   M5.begin();
 
-  setupShowImage();
-  setupMPU9250()
+  setupMPU9250();
 }
 
 // put your main code here, to run repeatedly
 void loop() {
-  setupShowImage();
-  setupVolume();
+  loopShowImage();
+  loopVolume();
 }
 
 /******
@@ -44,7 +44,7 @@ void setupDrawRect() {
   M5.Lcd.fillRect(100, 100, 50, 60, TFT_GREEN);
 }
 
-void setupShowImage() {
+void loopShowImage() {
   if (M5.BtnA.wasPressed()) {
     M5.Lcd.drawJpgFile(SD, "/Smile.jpg", 0, 0);
   } else if (M5.BtnB.wasPressed()) {
@@ -56,7 +56,7 @@ void setupShowImage() {
   M5.update(); // have to run for M5Stack button tapped
 }
 
-void setupVolume() {
+void loopVolume() {
   bool pressed = false;
   float freq[] = {261.6, 329.6, 392.6};
   float nowfreq;
@@ -85,7 +85,7 @@ void setupVolume() {
 
 void setupMPU9250() {
   // initialize I2C
-  write.begin();
+  Wire.begin();
   // initialize MPU9250
   IMU.initMPU9250();
 }
