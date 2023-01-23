@@ -1,10 +1,14 @@
 #include <Arduino.h>
 #include <M5Stack.h>
+#include "utility/MPU9250.h"
+
+MPU9250 IMU;
 
 void setupShowImage();
 void setupShowText();
 void setupDrawRect();
 void setupVolume();
+void setupMPU9250(); // 9 axis sensor
 
 float bfreq = 0;
 
@@ -16,6 +20,7 @@ void setup() {
   M5.begin();
 
   setupShowImage();
+  setupMPU9250()
 }
 
 // put your main code here, to run repeatedly
@@ -76,4 +81,11 @@ void setupVolume() {
   }
 
   M5.update();
+}
+
+void setupMPU9250() {
+  // initialize I2C
+  write.begin();
+  // initialize MPU9250
+  IMU.initMPU9250();
 }
