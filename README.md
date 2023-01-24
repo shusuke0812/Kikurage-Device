@@ -14,6 +14,10 @@ Kikurage Cultivation Device
     - An image size must be set 320*240, because M5 libraries does not have zooming image method.
     - Sad.jpg and Smile.jpg are saved on SD. (Jan, 2023)
     - format is FAT32
+- Include libraries
+  - Select your project on PIO Home
+  - Add libraries on Library Options section
+- Search libraries([ref](https://registry.platformio.org/search?t=library&f=espidf&f=arduino))
 
 ### Run
 
