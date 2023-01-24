@@ -10,6 +10,7 @@ void setupMPU9250(); // 9 axis sensor
 
 void loopShowImage();
 void loopVolume();
+void loopMPU9250();
 
 float bfreq = 0;
 
@@ -27,6 +28,7 @@ void setup() {
 void loop() {
   loopShowImage();
   loopVolume();
+  loopMPU9250();
 }
 
 /******
@@ -88,4 +90,32 @@ void setupMPU9250() {
   Wire.begin();
   // initialize MPU9250
   IMU.initMPU9250();
+}
+
+void loopMPU9250() {
+  float x, y, z;
+  String msg;
+
+  if(IMU.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
+    msg = "-";
+
+    IMU.readAccelData(IMU.accelCount);
+    IMU.getAres();
+    x = IMU.accelCount[0] * IMU.aRes;
+    y = IMU.accelCount[1] * IMU.aRes;
+    z = IMU.accelCount[2] * IMU.aRes;
+
+    if (abs(x) > 0.5) {
+      msg = (x < 0) ? "RIGHT" : "LEFT";
+    }
+    if (abs(y) > 0.5) {
+      msg = (y < 0) ? "BACK" : "FRONT";
+    }
+    if (abs(z) > 0.5) {
+      msg = (z < 0) ? "DOWN" : "UP";
+    }
+    M5.Lcd.clear();
+    M5.Lcd.drawCentreString(msg, 160, 120, 4);
+    delay(500);
+  }
 }
