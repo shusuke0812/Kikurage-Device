@@ -15,8 +15,10 @@ Kikurage Cultivation Device
     - Sad.jpg and Smile.jpg are saved on SD. (Jan, 2023)
     - format is FAT32
 - Include libraries
-  - Select your project on PIO Home
-  - Add libraries on Library Options section
+  - Go to PIO Home
+  - Select `Libraries` tab on side menu
+  - Search and select libraries
+  - Tap `Add to Project` button
 - Search libraries([ref](https://registry.platformio.org/search?t=library&f=espidf&f=arduino))
 
 ### Run
