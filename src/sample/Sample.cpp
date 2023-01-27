@@ -1,6 +1,4 @@
 #include "Sample.h"
-#include <M5Stack.h>
-#include "utility/MPU9250.h"
 
 MPU9250 IMU;
 

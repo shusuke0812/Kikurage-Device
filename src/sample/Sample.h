@@ -1,6 +1,9 @@
 #ifndef _Sample_H_
 #define _Sample_H_
 
+#include <M5Stack.h>
+#include "utility/MPU9250.h"
+
 class Sample {
   private:
     float bfreq;
