@@ -12,6 +12,7 @@ void setup() {
   M5.begin();
 
   sample.setupMPU9250();
+  Serial.println();
 }
 
 // put your main code here, to run repeatedly
