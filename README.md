@@ -20,6 +20,7 @@ Kikurage Cultivation Device
   - Search and select libraries
   - Tap `Add to Project` button
 - Search libraries([ref](https://registry.platformio.org/search?t=library&f=espidf&f=arduino))
+- Generate Bluetooth Service UUID and Characteristic UUID on [this page](https://www.uuidgenerator.net/).
 
 ### Run
 
