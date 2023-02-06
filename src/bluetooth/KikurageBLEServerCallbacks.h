@@ -6,9 +6,8 @@
 #include <M5Stack.h>
 
 class KikurageBLEServerCallbacks: public BLEServerCallbacks {
-  private:
-    bool isConnected;
   public:
+    bool isConnected;
     virtual void onConnect(BLEServer *peripheralServer);
     virtual void onDisconnect(BLEServer *peripheralServer);
 };
