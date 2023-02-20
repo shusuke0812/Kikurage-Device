@@ -1,15 +1,15 @@
 #ifndef _KikurageBLEServerCallbacks_H_
 #define _KikurageBLEServerCallbacks_H_
 
-#include <BLEServer.h>
-#include <BLEDevice.h>
+#include <NimBLEServer.h>
+#include <NimBLEDevice.h>
 #include <M5Stack.h>
 
-class KikurageBLEServerCallbacks: public BLEServerCallbacks {
+class KikurageBLEServerCallbacks: public NimBLEServerCallbacks {
   public:
     bool isConnected;
-    virtual void onConnect(BLEServer *peripheralServer);
-    virtual void onDisconnect(BLEServer *peripheralServer);
+    virtual void onConnect(NimBLEServer *peripheralServer);
+    virtual void onDisconnect(NimBLEServer *peripheralServer);
 };
 
 #endif // _KikurageBLEServerCallbacks_H
