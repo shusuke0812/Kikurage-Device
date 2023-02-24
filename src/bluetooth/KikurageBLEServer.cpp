@@ -10,11 +10,11 @@ void KikurageBLEServer::initialize() {
   NimBLEServer *peripheralServer = NimBLEDevice::createServer();
   peripheralServer->setCallbacks(new KikurageBLEServerCallbacks());
 
-  NimBLEService *peripheralService = peripheralServer->createService(id.SERVICE_UUID);
+  NimBLEService *peripheralService = peripheralServer->createService(id.serviceId);
 
   // Characteristic
   peripheralCharacteristic[0] = peripheralService->createCharacteristic(
-    id.CHARACTERISTICS[0],
+    id.characteristicId,
     NIMBLE_PROPERTY::WRITE
   );
   peripheralCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());

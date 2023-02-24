@@ -7,3 +7,6 @@ const char *CHARACTERISTICS[] = {
   "65609904-b6ed-45cc-b8af-b4055a9b7666",
   "65609905-b6ed-45cc-b8af-b4055a9b7666",
 };
+
+NimBLEUUID serviceId(SERVICE_UUID);
+NimBLEUUID characteristicId(CHARACTERISTICS[0]);
