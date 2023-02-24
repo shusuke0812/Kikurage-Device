@@ -6,12 +6,14 @@ KikurageBLEUUID id;
 void KikurageBLEServer::initialize() {
   NimBLEDevice::init("kikurage-device-m5-stack");
 
+  // Callbacks for connected and disconnected
   NimBLEServer *peripheralServer = NimBLEDevice::createServer();
   peripheralServer->setCallbacks(new KikurageBLEServerCallbacks());
 
+  // Create service
   NimBLEService *peripheralService = peripheralServer->createService(id.SERVICE_UUID);
 
-  // For M5 display
+  // Create characteristics
   peripheralCharacteristic[0] = peripheralService->createCharacteristic(
     id.CHARACTERISTICS[0],
     NIMBLE_PROPERTY::WRITE
