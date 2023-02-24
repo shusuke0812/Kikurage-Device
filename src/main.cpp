@@ -1,8 +1,10 @@
 #include <Arduino.h>
 #include <M5Stack.h>
 #include "sample/Sample.h"
+#include "bluetooth/KikurageBLEServer.h"
 
 Sample sample;
+KikurageBLEServer kikurageBLEServer;
 
 // put your setup code here, to run once
 void setup() {
@@ -13,11 +15,13 @@ void setup() {
 
   sample.setupMPU9250();
   Serial.println();
+
+  kikurageBLEServer.initialize();
 }
 
 // put your main code here, to run repeatedly
 void loop() {
-  sample.loopShowImage();
+  //sample.loopShowImage();
   //sample.loopVolume();
   //sample.loopMPU9250();
 }
