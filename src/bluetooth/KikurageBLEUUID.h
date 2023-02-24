@@ -9,6 +9,7 @@ class KikurageBLEUUID {
     const char *CHARACTERISTICS[4];
 
   public:
+    const char *DEVICE;
     const NimBLEUUID serviceId;
     const NimBLEUUID characteristicId;
 };

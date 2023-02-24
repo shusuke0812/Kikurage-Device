@@ -4,7 +4,7 @@ KikurageBLEUUID id;
 
 /* BLE sample initialize */
 void KikurageBLEServer::initialize() {
-  NimBLEDevice::init("kikurage-device-m5-stack");
+  NimBLEDevice::init(id.DEVICE);
 
   // Service
   NimBLEServer *peripheralServer = NimBLEDevice::createServer();
