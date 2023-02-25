@@ -14,12 +14,13 @@ void setup() {
     M5.begin();
     
     sample.setupMPU9250();
-    
     kikurageBLEServer.initialize();
 }
 
 // put your main code here, to run repeatedly
 void loop() {
+    delay(1000);
+    M5.update();
     //sample.loopShowImage();
     //sample.loopVolume();
     //sample.loopMPU9250();
