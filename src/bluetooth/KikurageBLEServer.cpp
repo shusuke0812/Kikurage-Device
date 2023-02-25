@@ -21,6 +21,8 @@ void KikurageBLEServer::initialize() {
   peripheralCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
 
   // Advertising
+  Serial.println("start advertising");
+
   peripheralService->start();
   NimBLEAdvertising *peripheralAdvertising = peripheralServer->getAdvertising();
   peripheralAdvertising->start();

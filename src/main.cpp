@@ -14,7 +14,6 @@ void setup() {
   M5.begin();
 
   sample.setupMPU9250();
-  Serial.println();
 
   kikurageBLEServer.initialize();
 }
