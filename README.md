@@ -49,3 +49,7 @@ monitor_speed = 115200
 3. open serial monitor
 
 <img width="985" alt="スクリーンショット 2023-01-22 13 21 09" src="https://user-images.githubusercontent.com/33107697/213900500-c2d2350f-f345-490f-bcd2-0f7a5f8c6998.png">
+
+### Reference
+
+- [How to create header and source files](https://skpme.com/621/)
