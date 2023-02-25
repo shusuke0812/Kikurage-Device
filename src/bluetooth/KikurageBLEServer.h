@@ -9,9 +9,10 @@
 
 class KikurageBLEServer {
   private:
-    NimBLEServer *peripheralServer;
     NimBLECharacteristic *peripheralCharacteristic[4];
+    NimBLEService *peripheralService;
   public:
+    NimBLEServer *peripheralServer;
     void initialize();
 };
 

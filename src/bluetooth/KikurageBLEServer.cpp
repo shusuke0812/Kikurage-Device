@@ -1,5 +1,6 @@
 #include "KikurageBLEServer.h"
 
+// private
 KikurageBLEUUID id;
 
 /* BLE sample initialize */
@@ -7,10 +8,10 @@ void KikurageBLEServer::initialize() {
   NimBLEDevice::init(id.DEVICE);
 
   // Service
-  NimBLEServer *peripheralServer = NimBLEDevice::createServer();
+  peripheralServer = NimBLEDevice::createServer();
   peripheralServer->setCallbacks(new KikurageBLEServerCallbacks());
 
-  NimBLEService *peripheralService = peripheralServer->createService(id.serviceId);
+  peripheralService = peripheralServer->createService(id.serviceId);
 
   // Characteristic
   peripheralCharacteristic[0] = peripheralService->createCharacteristic(
