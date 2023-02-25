@@ -6,6 +6,7 @@ KikurageBLEUUID id;
 /* BLE sample initialize */
 void KikurageBLEServer::initialize() {
     NimBLEDevice::init(id.DEVICE);
+    Serial.println("debug: device init");
     
     // Service
     peripheralServer = NimBLEDevice::createServer();
@@ -21,7 +22,7 @@ void KikurageBLEServer::initialize() {
     peripheralCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
     
     // Advertising
-    Serial.println("start advertising");
+    Serial.println("debug: start advertising");
     
     peripheralService->start();
     NimBLEAdvertising *peripheralAdvertising = peripheralServer->getAdvertising();

@@ -24,13 +24,13 @@ void Sample::setupMPU9250() {
 
 void Sample::loopShowImage() {
     if (M5.BtnA.wasPressed()) {
-        Serial.println("tapped A");
+        Serial.println("debug: tapped A");
         M5.Lcd.drawJpgFile(SD, "/Smile.jpg", 0, 0);
     } else if (M5.BtnB.wasPressed()) {
-        Serial.println("tapped B");
+        Serial.println("debug: tapped B");
         M5.Lcd.drawJpgFile(SD, "/Sad.jpg", 0, 0);
     } else if (M5.BtnC.wasReleasefor(300)) {
-        Serial.println("tapped C");
+        Serial.println("debug: tapped C");
         M5.Lcd.clear();
     }
     
