@@ -2,7 +2,7 @@
 
 Color color;
 
-void KikurageBLECharacteristicCallbacks::onWrite(NimBLECharacteristic *peripheralCharacteristic) {
+void onWrite(NimBLECharacteristic *peripheralCharacteristic) {
     M5.Lcd.println("white");
     std::string value = peripheralCharacteristic->getValue();
     String colorval = String(value.c_str());
@@ -23,6 +23,6 @@ void KikurageBLECharacteristicCallbacks::onWrite(NimBLECharacteristic *periphera
     }
 }
 
-void KikurageBLECharacteristicCallbacks::onRead(NimBLECharacteristic *peripheralCharacteristic) {  
+void onRead(NimBLECharacteristic *peripheralCharacteristic) {  
     M5.Lcd.println("read");
 }

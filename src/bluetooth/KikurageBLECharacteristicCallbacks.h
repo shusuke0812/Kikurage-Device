@@ -7,8 +7,7 @@
 
 class KikurageBLECharacteristicCallbacks: public NimBLECharacteristicCallbacks {
     public:
-    void onWrite(NimBLECharacteristic *peripheralCharacteristic);
-    void onRead(NimBLECharacteristic *peripheralCharacteristic);
+    // do nothing
 };
 
 #endif // _KikurageBLECharacteristicCallbacks_H_

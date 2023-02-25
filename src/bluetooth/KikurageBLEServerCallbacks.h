@@ -8,8 +8,8 @@
 class KikurageBLEServerCallbacks: public NimBLEServerCallbacks {
     public:
     bool isConnected;
-    virtual void onConnect(NimBLEServer *peripheralServer);
-    virtual void onDisconnect(NimBLEServer *peripheralServer);
+    //virtual void onConnect(NimBLEServer *peripheralServer);
+    //virtual void onDisconnect(NimBLEServer *peripheralServer);
 };
 
 #endif // _KikurageBLEServerCallbacks_H
