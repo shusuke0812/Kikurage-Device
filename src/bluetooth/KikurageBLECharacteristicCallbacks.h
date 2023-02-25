@@ -6,7 +6,7 @@
 #include "sample/Color.h"
 
 class KikurageBLECharacteristicCallbacks: public NimBLECharacteristicCallbacks {
-  public:
+    public:
     void onWrite(NimBLECharacteristic *peripheralCharacteristic);
     void onRead(NimBLECharacteristic *peripheralCharacteristic);
 };

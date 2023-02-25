@@ -6,7 +6,7 @@
 #include <M5Stack.h>
 
 class KikurageBLEServerCallbacks: public NimBLEServerCallbacks {
-  public:
+    public:
     bool isConnected;
     virtual void onConnect(NimBLEServer *peripheralServer);
     virtual void onDisconnect(NimBLEServer *peripheralServer);

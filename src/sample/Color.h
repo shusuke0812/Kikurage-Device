@@ -4,7 +4,7 @@
 #include <M5Stack.h>
 
 class Color {
-  public:
+    public:
     int convertRGB(String s);
 };
 

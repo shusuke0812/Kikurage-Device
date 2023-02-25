@@ -8,10 +8,10 @@
 #include "KikurageBLEUUID.h"
 
 class KikurageBLEServer {
-  private:
+    private:
     NimBLECharacteristic *peripheralCharacteristic[4];
     NimBLEService *peripheralService;
-  public:
+    public:
     NimBLEServer *peripheralServer;
     void initialize();
 };

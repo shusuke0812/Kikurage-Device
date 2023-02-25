@@ -5,10 +5,10 @@
 #include "utility/MPU9250.h"
 
 class Sample {
-  private:
+    private:
     float bfreq;
 
-  public:
+    public:
     void setupShowText();
     void setupDrawRect();
     void setupMPU9250();

@@ -4,11 +4,11 @@
 #include <NimBLEDevice.h>
 
 class KikurageBLEUUID {
-  private:
+    private:
     const char *SERVICE_UUID;
     const char *CHARACTERISTICS[4];
 
-  public:
+    public:
     const char *DEVICE;
     const NimBLEUUID serviceId;
     const NimBLEUUID characteristicId;
