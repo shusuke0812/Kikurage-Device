@@ -2,9 +2,9 @@
 
 Color color;
 
-void onWrite(NimBLECharacteristic *peripheralCharacteristic) {
+void onWrite(NimBLECharacteristic *pCharacteristic) {
     M5.Lcd.println("white");
-    std::string value = peripheralCharacteristic->getValue();
+    std::string value = pCharacteristic->getValue();
     String colorval = String(value.c_str());
 
     int r, g, b;
@@ -23,6 +23,6 @@ void onWrite(NimBLECharacteristic *peripheralCharacteristic) {
     }
 }
 
-void onRead(NimBLECharacteristic *peripheralCharacteristic) {  
+void onRead(NimBLECharacteristic *pCharacteristic) {  
     M5.Lcd.println("read");
 }

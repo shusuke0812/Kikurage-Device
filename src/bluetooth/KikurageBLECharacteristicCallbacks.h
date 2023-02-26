@@ -7,7 +7,7 @@
 
 class KikurageBLECharacteristicCallbacks: public NimBLECharacteristicCallbacks {
     public:
-    // do nothing
+    // nothing
 };
 
 #endif // _KikurageBLECharacteristicCallbacks_H_
