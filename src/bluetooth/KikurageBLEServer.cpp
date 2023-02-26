@@ -6,6 +6,8 @@ KikurageBLEUUID id;
 /* BLE sample initialize */
 void KikurageBLEServer::initialize() {
     NimBLEDevice::init(id.DEVICE);
+    NimBLEDevice::setPower(ESP_PWR_LVL_P9);
+    NimBLEDevice::setSecurityAuth(false, false, false);
     
     // Service
     pServer = NimBLEDevice::createServer();
@@ -23,5 +25,7 @@ void KikurageBLEServer::initialize() {
     // Advertising    
     pService->start();
     NimBLEAdvertising *pAdvertising = pServer->getAdvertising();
+    pAdvertising->addServiceUUID(id.serviceId);
+    pAdvertising->addTxPower();
     pAdvertising->start();
 }
