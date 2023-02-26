@@ -2,7 +2,6 @@
 #define _KikurageBLEServer_H_
 
 #include <NimBLEDevice.h>
-#include <NimBLEServer.h>
 #include "KikurageBLEServerCallbacks.h"
 #include "KikurageBLECharacteristicCallbacks.h"
 #include "KikurageBLEUUID.h"
