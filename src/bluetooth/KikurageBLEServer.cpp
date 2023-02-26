@@ -23,7 +23,7 @@ void KikurageBLEServer::initialize() {
     
     // Advertising
     pService->start();
-    NimBLEAdvertising *pAdvertising = pServer->getAdvertising();
+    NimBLEAdvertising *pAdvertising = NimBLEDevice::getAdvertising();
     pAdvertising->addServiceUUID(id.SERVICE_UUID);
     pAdvertising->addTxPower();
     pAdvertising->start();
