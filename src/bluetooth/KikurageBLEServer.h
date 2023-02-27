@@ -6,13 +6,6 @@
 #include "KikurageBLECharacteristicCallbacks.h"
 #include "KikurageBLEUUID.h"
 
-class KikurageBLEServer {
-    private:
-    NimBLECharacteristic *pCharacteristic[4];
-    NimBLEService *pService;
-    public:
-    NimBLEServer *pServer;
-    void initialize();
-};
+void initializeBLEServer();
 
 #endif // _KikurageBLEServer_H_

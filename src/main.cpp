@@ -4,7 +4,6 @@
 #include "bluetooth/KikurageBLEServer.h"
 
 Sample sample;
-KikurageBLEServer kikurageBLEServer;
 
 // put your setup code here, to run once
 void setup() {
@@ -14,7 +13,7 @@ void setup() {
     M5.begin();
     
     sample.setupMPU9250();
-    kikurageBLEServer.initialize();
+    initializeBLEServer();
 }
 
 // put your main code here, to run repeatedly

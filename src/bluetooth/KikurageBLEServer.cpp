@@ -2,8 +2,11 @@
 
 KikurageBLEUUID id;
 
+NimBLECharacteristic *pCharacteristic[4] = {};
+NimBLEServer *pServer = NULL;
+
 /* BLE sample initialize */
-void KikurageBLEServer::initialize() {
+void initializeBLEServer() {
     NimBLEDevice::init(id.DEVICE);
     NimBLEDevice::setPower(ESP_PWR_LVL_P9);
     NimBLEDevice::setSecurityAuth(false, false, false);
@@ -12,7 +15,7 @@ void KikurageBLEServer::initialize() {
     pServer = NimBLEDevice::createServer();
     pServer->setCallbacks(new KikurageBLEServerCallbacks());
     
-    pService = pServer->createService(id.SERVICE_UUID);
+    NimBLEService *pService = pServer->createService(id.SERVICE_UUID);
     
     // Characteristic
     pCharacteristic[0] = pService->createCharacteristic(
