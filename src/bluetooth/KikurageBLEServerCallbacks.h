@@ -6,7 +6,7 @@
 
 class KikurageBLEServerCallbacks: public NimBLEServerCallbacks {
     public:
-    bool isConnected;
+    // nothing
 };
 
 #endif // _KikurageBLEServerCallbacks_H
