@@ -1,13 +1,12 @@
 #include "KikurageBLEServer.h"
-
-KikurageBLEUUID id;
+#include "KikurageBLEUUID.h"
 
 NimBLECharacteristic *pCharacteristic[4] = {};
 NimBLEServer *pServer = NULL;
 
 /* BLE sample initialize */
 void initializeBLEServer() {
-    NimBLEDevice::init(id.DEVICE);
+    NimBLEDevice::init(DEVICE);
     NimBLEDevice::setPower(ESP_PWR_LVL_P9);
     NimBLEDevice::setSecurityAuth(false, false, false);
     
@@ -15,11 +14,11 @@ void initializeBLEServer() {
     pServer = NimBLEDevice::createServer();
     pServer->setCallbacks(new KikurageBLEServerCallbacks());
     
-    NimBLEService *pService = pServer->createService(id.SERVICE_UUID);
+    NimBLEService *pService = pServer->createService(SERVICE_UUID);
     
     // Characteristic
     pCharacteristic[0] = pService->createCharacteristic(
-        id.CHARACTERISTICS[0],
+        CHARACTERISTICS[0],
         NIMBLE_PROPERTY::WRITE
     );
     pCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
@@ -27,7 +26,7 @@ void initializeBLEServer() {
     // Advertising
     pService->start();
     NimBLEAdvertising *pAdvertising = NimBLEDevice::getAdvertising();
-    pAdvertising->addServiceUUID(id.SERVICE_UUID);
+    pAdvertising->addServiceUUID(SERVICE_UUID);
     pAdvertising->addTxPower();
     pAdvertising->start();
 }

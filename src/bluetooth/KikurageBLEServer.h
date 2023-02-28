@@ -4,7 +4,6 @@
 #include <NimBLEDevice.h>
 #include "KikurageBLEServerCallbacks.h"
 #include "KikurageBLECharacteristicCallbacks.h"
-#include "KikurageBLEUUID.h"
 
 void initializeBLEServer();
 
