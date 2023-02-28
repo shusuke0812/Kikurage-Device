@@ -6,7 +6,7 @@ NimBLEServer *pServer = NULL;
 
 /* BLE sample initialize */
 void initializeBLEServer() {
-    NimBLEDevice::init(DEVICE);
+    NimBLEDevice::init(DEVICE_NAME);
     NimBLEDevice::setPower(ESP_PWR_LVL_P9);
     NimBLEDevice::setSecurityAuth(false, false, false);
     

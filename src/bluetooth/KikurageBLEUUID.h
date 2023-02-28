@@ -9,6 +9,6 @@ const char *CHARACTERISTICS[4] = {
     "65609905-b6ed-45cc-b8af-b4055a9b7666",
 };
 
-const char *DEVICE = "kikurage-device-m5-stack";
+const char *DEVICE_NAME = "kikurage-device-m5-stack";
 
 #endif // _KikurageBLEUUID_H_
