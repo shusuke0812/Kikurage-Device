@@ -1,6 +1,8 @@
 #ifndef _KikurageBLEUUID_H_
 #define _KikurageBLEUUID_H_
 
+// How to create UUID : https://www.uuidgenerator.net/
+
 const char *SERVICE_UUID = "65609901-b6ed-45cc-b8af-b4055a9b7666";
 const char *CHARACTERISTICS[4] = {
     "65609902-b6ed-45cc-b8af-b4055a9b7666",
