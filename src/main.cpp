@@ -2,6 +2,7 @@
 #include <M5Stack.h>
 #include "sample/Sample.h"
 #include "bluetooth/KikurageBLEServer.h"
+#include "bluetooth/KikurageBLEMessage.h"
 
 Sample sample;
 
@@ -11,9 +12,7 @@ void setup() {
     
     // initialize UART, Display, Power, microSD card
     M5.begin();
-    M5.Lcd.clear(TFT_BLACK);
-    M5.Lcd.setTextSize(2);
-    M5.Lcd.drawString("Disconnected", 90, 115);
+    kDrawString("Disconnect");
     
     sample.setupMPU9250();
     initializeBLEServer();
