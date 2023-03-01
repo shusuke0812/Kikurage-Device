@@ -11,6 +11,9 @@ void setup() {
     
     // initialize UART, Display, Power, microSD card
     M5.begin();
+    M5.Lcd.clear(TFT_BLACK);
+    M5.Lcd.setTextSize(2);
+    M5.Lcd.drawString("Disconnected", 90, 115);
     
     sample.setupMPU9250();
     initializeBLEServer();
