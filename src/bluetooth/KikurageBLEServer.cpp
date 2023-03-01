@@ -1,5 +1,5 @@
-#include "KikurageBLEServer.h"
-#include "KikurageBLEUUID.h"
+#include "bluetooth/KikurageBLEServer.h"
+#include "bluetooth/KikurageBLEUUID.h"
 
 NimBLECharacteristic *pCharacteristic[4] = {};
 NimBLEServer *pServer = NULL;

@@ -1,4 +1,4 @@
-#include "Sample.h"
+#include "sample/Sample.h"
 
 MPU9250 IMU;
 
