@@ -3,6 +3,7 @@
 Color color;
 
 void onWrite(NimBLECharacteristic *pCharacteristic) {
+    Serial.println("debug: called write of characteristic");
     M5.Lcd.println("white");
     std::string value = pCharacteristic->getValue();
     String colorval = String(value.c_str());
@@ -23,6 +24,7 @@ void onWrite(NimBLECharacteristic *pCharacteristic) {
     }
 }
 
-void onRead(NimBLECharacteristic *pCharacteristic) {  
+void onRead(NimBLECharacteristic *pCharacteristic) { 
+    Serial.println("debug: called read of characteristic");
     M5.Lcd.println("read");
 }
