@@ -1,4 +1,4 @@
-#include "Color.h"
+#include "sample/Color.h"
 
 int Color::convertRGB(String s) {
     int val = 0;
