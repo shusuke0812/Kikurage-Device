@@ -16,7 +16,7 @@ void initializeBLEServer() {
     
     NimBLEService *pService = pServer->createService(SERVICE_UUID);
     
-    // Characteristic
+    // Characteristic( for display color )
     pCharacteristic[0] = pService->createCharacteristic(
         CHARACTERISTICS[0],
         NIMBLE_PROPERTY::WRITE
