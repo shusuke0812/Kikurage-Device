@@ -6,7 +6,8 @@
 
 class KikurageBLEServerCallbacks: public NimBLEServerCallbacks {
     public:
-    // nothing
+    void onConnect(NimBLEServer *pServer);
+    void onDisconnect(NimBLEServer *pServer);
 };
 
 #endif // _KikurageBLEServerCallbacks_H
