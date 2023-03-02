@@ -22,6 +22,16 @@ void initializeBLEServer() {
         NIMBLE_PROPERTY::WRITE
     );
     pCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
+
+    // Characteristic( for 9 axis sensor )
+    for (int i = 0; i < 3; i++) {
+        pCharacteristic[i + 1] = pService->createCharacteristic(
+            CHARACTERISTICS[i + 1],
+            NIMBLE_PROPERTY::READ |
+            NIMBLE_PROPERTY::NOTIFY
+        );
+        pCharacteristic[i + 1]->setCallbacks(new KikurageBLECharacteristicCallbacks());
+    }
     
     // Advertising
     pService->start();
