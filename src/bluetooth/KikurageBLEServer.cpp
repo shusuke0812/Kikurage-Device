@@ -1,8 +1,13 @@
 #include "bluetooth/KikurageBLEServer.h"
 #include "bluetooth/KikurageBLEUUID.h"
+#include "bluetooth/KikurageBLEState.h"
+
+#include "utility/MPU9250.h"
 
 NimBLECharacteristic *pCharacteristic[4] = {};
 NimBLEServer *pServer = NULL;
+
+MPU9250 IMU;
 
 /* BLE sample initialize */
 void initializeBLEServer() {
@@ -39,4 +44,21 @@ void initializeBLEServer() {
     pAdvertising->addServiceUUID(SERVICE_UUID);
     pAdvertising->addTxPower();
     pAdvertising->start();
+}
+
+/* BLE sample setting value to characteristic */
+void loop9axisSensor() {
+    if (isConnected) {
+        if (IMU.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
+            IMU.readAccelData(IMU.accelCount);
+            IMU.getAres();
+            for (int i = 0; i < 3; i++) {
+                float val = IMU.accelCount[i] * IMU.aRes;
+                pCharacteristic[i + 1]->setValue(val);
+                pCharacteristic[i + 1]->notify();
+                Serial.print("debug: set value of characteristic number = ");
+                Serial.println(i + 1);
+            }
+        }
+    }
 }

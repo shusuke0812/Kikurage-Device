@@ -3,6 +3,7 @@
 #include "sample/Sample.h"
 #include "bluetooth/KikurageBLEServer.h"
 #include "bluetooth/KikurageBLEMessage.h"
+#include "bluetooth/KikurageBLEState.h"
 
 Sample sample;
 
@@ -20,6 +21,7 @@ void setup() {
 
 // put your main code here, to run repeatedly
 void loop() {
+    loop9axisSensor();
     delay(1000);
     M5.update();
     //sample.loopShowImage();

@@ -6,5 +6,6 @@
 #include "KikurageBLECharacteristicCallbacks.h"
 
 void initializeBLEServer();
+void loop9axisSensor();
 
 #endif // _KikurageBLEServer_H_
