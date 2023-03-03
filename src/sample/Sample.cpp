@@ -1,7 +1,5 @@
 #include "sample/Sample.h"
 
-MPU9250 IMU;
-
 float breq = 0;
 
 void Sample::setupShowText() {

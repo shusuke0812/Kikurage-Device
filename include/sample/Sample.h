@@ -7,6 +7,7 @@
 class Sample {
     private:
     float bfreq;
+    MPU9250 IMU;
 
     public:
     void setupShowText();
