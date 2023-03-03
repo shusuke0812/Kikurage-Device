@@ -10,7 +10,7 @@ NimBLEServer *pServer = NULL;
 MPU9250 IMU;
 
 /* BLE sample initialize */
-void KikurageBLEServer::initializeBLEServer() {
+void KikurageBLEServer::initialize() {
     NimBLEDevice::init(DEVICE_NAME);
     NimBLEDevice::setPower(ESP_PWR_LVL_P9);
     NimBLEDevice::setSecurityAuth(false, false, false);

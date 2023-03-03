@@ -8,7 +8,7 @@
 
 class KikurageBLEServer {
     public:
-    void initializeBLEServer();
+    void initialize();
     void loop9axisSensor();
 };
 

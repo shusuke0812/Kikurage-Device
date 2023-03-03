@@ -6,7 +6,7 @@
 #include "bluetooth/KikurageBLEState.h"
 
 Sample sample;
-KikurageBLEServer kServer;
+KikurageBLEServer kBLEServer;
 
 // put your setup code here, to run once
 void setup() {
@@ -17,12 +17,12 @@ void setup() {
     kDrawString("Disconnect");
     
     sample.setupMPU9250();
-    kServer.initializeBLEServer();
+    kBLEServer.initialize();
 }
 
 // put your main code here, to run repeatedly
 void loop() {
-    kServer.loop9axisSensor();
+    kBLEServer.loop9axisSensor();
     delay(1000);
     M5.update();
     //sample.loopShowImage();
