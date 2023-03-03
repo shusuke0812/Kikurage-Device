@@ -1,7 +1,6 @@
 #include "bluetooth/KikurageBLEServerCallbacks.h"
 #include "bluetooth/KikurageBLEMessage.h"
-
-bool isConnected = false;
+#include "bluetooth/KikurageBLEState.h"
 
 void KikurageBLEServerCallbacks::onConnect(NimBLEServer *pServer) {
     Serial.println("debug: BLE connected");
