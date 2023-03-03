@@ -10,7 +10,7 @@ NimBLEServer *pServer = NULL;
 MPU9250 IMU;
 
 /* BLE sample initialize */
-void initializeBLEServer() {
+void KikurageBLEServer::initializeBLEServer() {
     NimBLEDevice::init(DEVICE_NAME);
     NimBLEDevice::setPower(ESP_PWR_LVL_P9);
     NimBLEDevice::setSecurityAuth(false, false, false);
@@ -47,7 +47,7 @@ void initializeBLEServer() {
 }
 
 /* BLE sample setting value to characteristic */
-void loop9axisSensor() {
+void KikurageBLEServer::loop9axisSensor() {
     if (isConnected) {
         if (IMU.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
             IMU.readAccelData(IMU.accelCount);
