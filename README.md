@@ -32,6 +32,8 @@ Kikurage Cultivation Device
 
 ### Debug
 
+#### Checking Serial Monitor
+
 1. setup as following
 
 ```c
@@ -49,6 +51,14 @@ monitor_speed = 115200
 3. open serial monitor
 
 <img width="985" alt="スクリーンショット 2023-01-22 13 21 09" src="https://user-images.githubusercontent.com/33107697/213900500-c2d2350f-f345-490f-bcd2-0f7a5f8c6998.png">
+
+<br />
+
+#### Analyzing Backtraces
+
+https://github.com/shusuke0812/Kikurage-Device/issues/1#issuecomment-1446436848
+
+
 
 ### Reference
 
