@@ -2,6 +2,7 @@
 #define _WiFiScanner_H_
 
 #include <M5Stack.h>
+#include <WiFi.h>
 
 class WiFiScanner {
     public:
