@@ -5,7 +5,7 @@ void WiFiScanner::initialize() {
     WiFi.disconnect();
 }
 
-void WiFiScanner::loopScan() {
+void WiFiScanner::loopScanDebug() {
     int foundWiFiNum = WiFi.scanNetworks();
 
     M5.Lcd.fillScreen(BLACK);

@@ -7,7 +7,7 @@
 class WiFiScanner {
     public:
     void initialize();
-    void loopScan();
+    void loopScanDebug();
 };
 
 #endif // _WiFiScanner_H_
