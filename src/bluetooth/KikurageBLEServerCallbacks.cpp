@@ -5,11 +5,11 @@
 void KikurageBLEServerCallbacks::onConnect(NimBLEServer *pServer) {
     Serial.println("debug: BLE connected");
     kDrawString("BLE Connect");
-    isConnected = true;
+    isBLEConnected = true;
 }
 
 void KikurageBLEServerCallbacks::onDisconnect(NimBLEServer *pServer) {
     Serial.println("debug: BLE disconnected");
     kDrawString("BLE Disconnect");
-    isConnected = false;
+    isBLEConnected = false;
 }

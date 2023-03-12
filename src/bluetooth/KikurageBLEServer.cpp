@@ -48,7 +48,7 @@ void KikurageBLEServer::initialize() {
 
 /* BLE sample setting value to characteristic */
 void KikurageBLEServer::loop9axisSensor() {
-    if (isConnected) {
+    if (isBLEConnected) {
         if (IMU.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
             IMU.readAccelData(IMU.accelCount);
             IMU.getAres();
