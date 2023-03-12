@@ -16,7 +16,7 @@ void WiFiScanner::loopScan() {
     } else {
         M5.Lcd.print(foundWiFiNum);
         M5.Lcd.println(" found networks");
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < foundWiFiNum; ++i) {
             M5.Lcd.print(i + 1);
             M5.Lcd.print(": ");
             M5.Lcd.print(WiFi.SSID(i));
