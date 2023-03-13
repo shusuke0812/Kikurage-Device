@@ -1,6 +1,6 @@
 #ifndef _KikurageBLEState_H_
 #define _KikurageBLEState_H_
 
-extern bool isConnected;
+extern bool isBLEConnected;
 
 #endif // _KikurageBLEState_H_

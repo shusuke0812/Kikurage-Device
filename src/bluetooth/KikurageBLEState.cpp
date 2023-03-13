@@ -1,3 +1,3 @@
 #include "bluetooth/KikurageBLEState.h"
 
-bool isConnected = false;
+bool isBLEConnected = false;
