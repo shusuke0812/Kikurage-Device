@@ -36,3 +36,18 @@ void WiFiScanner::loopScanDebug() {
         }
     }
 }
+
+std::vector<KikurageWiFi> WiFiScanner::getWiFiList() {
+    int foundWiFiNum = WiFi.scanNetworks();
+    std::vector<KikurageWiFi> wifiList;
+
+    if (foundWiFiNum == 0) {
+        Serial.println("debug: not found WiFi");
+    } else {
+        for (int i = 0; i < foundWiFiNum; i++) {
+            KikurageWiFi wifi = { WiFi.SSID(i), WiFi.channel(i), WiFi.RSSI(i), WiFi.encryptionType(i) == WIFI_AUTH_OPEN };
+            wifiList.push_back(wifi);
+        }
+    }
+    return wifiList;
+}
