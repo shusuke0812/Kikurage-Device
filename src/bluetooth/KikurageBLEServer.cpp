@@ -62,3 +62,11 @@ void KikurageBLEServer::loop9axisSensor() {
         }
     }
 }
+
+void KikurageBLEServer::setupWiFiToPeripheral(String jsonString) {
+    pCharacteristic[1]->setValue(jsonString);
+    pCharacteristic[1]->notify();
+    delay(100);
+    Serial.print("debug: setup characteristic -> ");
+    Serial.println(jsonString);
+}
