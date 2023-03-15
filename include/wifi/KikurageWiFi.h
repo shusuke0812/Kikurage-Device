@@ -5,6 +5,8 @@
 #include <ArduinoJson.h>
 
 struct KikurageWiFi {
+    int totalCount;
+    int count;
     String ssid;
     int32_t channel;
     int32_t rssi;
