@@ -21,14 +21,14 @@ void KikurageBLEServer::initialize() {
     
     NimBLEService *pService = pServer->createService(SERVICE_UUID);
     
-    // Characteristic( for display color )
+    // Characteristic( for writing wifi )
     pCharacteristic[0] = pService->createCharacteristic(
         CHARACTERISTICS[0],
         NIMBLE_PROPERTY::WRITE
     );
     pCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
 
-    // Characteristic( for 9 axis sensor )
+    // Characteristic( for result of scanning wifi )
     for (int i = 0; i < 3; i++) {
         pCharacteristic[i + 1] = pService->createCharacteristic(
             CHARACTERISTICS[i + 1],
