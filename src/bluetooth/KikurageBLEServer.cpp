@@ -64,7 +64,6 @@ void KikurageBLEServer::loop9axisSensor() {
 }
 
 void KikurageBLEServer::setupWiFiToPeripheral(String jsonString) {
-    // TODO: cast jsonString to byte
     pCharacteristic[1]->setValue(jsonString);
     pCharacteristic[1]->notify();
     delay(100);
