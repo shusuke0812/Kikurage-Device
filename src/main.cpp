@@ -5,6 +5,7 @@
 #include "bluetooth/KikurageBLEMessage.h"
 #include "bluetooth/KikurageBLEState.h"
 
+#include "wifi/KikurageWiFiState.h"
 #include "wifi/WiFiScanner.h"
 #include "wifi/KikurageWiFi.h"
 
