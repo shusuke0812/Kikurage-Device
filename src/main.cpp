@@ -25,7 +25,7 @@ void setup() {
 
 // put your main code here, to run repeatedly
 void loop() {
-    if (isBLEConnected && isStartWiFiScan) {
+    if (isBLEConnected && !isStopWiFiScan) {
         std::vector<KikurageWiFi> wifiList = wifiScanner.getWiFiList();
         int wifiListCount = wifiList.size();
 

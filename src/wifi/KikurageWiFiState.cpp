@@ -1,3 +1,3 @@
 #include "wifi/KikurageWiFiState.h"
 
-bool isStartWiFiScan = true;
+bool isStopWiFiScan = false;
