@@ -9,7 +9,7 @@ void KikurageBLECharacteristicCallbacks::onWrite(NimBLECharacteristic *pCharacte
     DynamicJsonDocument doc(128);
     deserializeJson(doc, stopWiFiScanCommand);
 
-    bool temp = doc["command"];
+    bool temp = doc["is_stop"];
     isStopWiFiScan = temp;
 
     Serial.print("debug: called stop wifi scan = ");
