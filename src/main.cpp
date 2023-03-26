@@ -33,6 +33,10 @@ void loop() {
             String jsonString = getKikurageWiFiJSONString(wifiList[i]);
             kBLEServer.setupWiFiToPeripheral(jsonString);
         }
+        isWiFiSetting = false
+    }
+    if isWiFiSetting {
+        
     }
     delay(1000);
     M5.update();

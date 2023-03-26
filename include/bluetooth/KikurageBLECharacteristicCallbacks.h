@@ -13,4 +13,10 @@ class KikurageBLECharacteristicCallbacks: public NimBLECharacteristicCallbacks {
     void onRead(NimBLECharacteristic *pCharacteristic);
 };
 
+class KikurageBLEWiFiSettingCharacteristicCallbacks: public NimBLECharacteristic {
+    public:
+    void onWrite(NimBLECharacteristic *pCharacteristic);
+    void onRead(NimBLECharacteristic *pCharacteristic);
+}
+
 #endif // _KikurageBLECharacteristicCallbacks_H_
