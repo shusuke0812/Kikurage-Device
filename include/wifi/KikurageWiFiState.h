@@ -6,7 +6,4 @@
 extern bool isStopWiFiScan;
 extern bool isWiFiSetting;
 
-extern String ssid;
-extern String password;
-
 #endif // _KikurageWiFiState_H_

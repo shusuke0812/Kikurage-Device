@@ -1,7 +1,5 @@
 #include "bluetooth/KikurageBLECharacteristicCallbacks.h"
 
-Color color;
-
 void KikurageBLECharacteristicCallbacks::onWrite(NimBLECharacteristic *pCharacteristic) {
     std::string value = pCharacteristic->getValue();
     String stopWiFiScanCommand = String(value.c_str());
@@ -26,17 +24,17 @@ void KikurageBLEWiFiSettingCharacteristicCallbacks::onWrite(NimBLECharacteristic
     isWiFiSetting = true;
     
     // decode
-    std:string value = pCharacteristic->getValue();
+    std::string value = pCharacteristic->getValue();
     String wifiSettingCommand = String(value.c_str());
 
     DynamicJsonDocument doc(128);
-    deserialize(doc, wifiSettingCommand);
+    deserializeJson(doc, wifiSettingCommand);
 
-    String tempSsid = doc["ssid"];
-    String tempPassword = doc["password"];
+    const char *ssid = doc["ssid"];
+    const char *password = doc["password"];
 
-    ssid = tempSsid;
-    password = tempPassword;
+    KikurageWiFiSetting wifiSetting;
+    wifiSetting.setupWiFi(ssid, password);
 
     Serial.println("debug: called wifi setting");
 }

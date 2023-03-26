@@ -4,7 +4,7 @@
 
 #include "utility/MPU9250.h"
 
-NimBLECharacteristic *pCharacteristic[4] = {};
+NimBLECharacteristic *pCharacteristics[4] = {};
 NimBLEServer *pServer = NULL;
 
 MPU9250 IMU;
@@ -21,23 +21,30 @@ void KikurageBLEServer::initialize() {
     
     NimBLEService *pService = pServer->createService(SERVICE_UUID);
     
-    // Characteristic( for writing wifi )
-    pCharacteristic[0] = pService->createCharacteristic(
+    // Characteristic( for stop wifi scan )
+    pCharacteristics[0] = pService->createCharacteristic(
         CHARACTERISTICS[0],
         NIMBLE_PROPERTY::WRITE
     );
-    pCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
+    pCharacteristics[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
 
     // Characteristic( for result of scanning wifi )
-    for (int i = 0; i < 3; i++) {
-        pCharacteristic[i + 1] = pService->createCharacteristic(
+    for (int i = 0; i < 1; i++) {
+        pCharacteristics[i + 1] = pService->createCharacteristic(
             CHARACTERISTICS[i + 1],
             NIMBLE_PROPERTY::READ |
             NIMBLE_PROPERTY::NOTIFY
         );
-        pCharacteristic[i + 1]->setCallbacks(new KikurageBLECharacteristicCallbacks());
+        pCharacteristics[i + 1]->setCallbacks(new KikurageBLECharacteristicCallbacks());
     }
-    
+
+    // Characteristic( for setting wifi )
+    pCharacteristics[2] = pService->createCharacteristic(
+        CHARACTERISTICS[2],
+        NIMBLE_PROPERTY::WRITE
+    );
+    pCharacteristics[2]->setCallbacks(new KikurageBLEWiFiSettingCharacteristicCallbacks());
+
     // Advertising
     pService->start();
     NimBLEAdvertising *pAdvertising = NimBLEDevice::getAdvertising();
@@ -54,8 +61,8 @@ void KikurageBLEServer::loop9axisSensor() {
             IMU.getAres();
             for (int i = 0; i < 3; i++) {
                 float val = IMU.accelCount[i] * IMU.aRes;
-                pCharacteristic[i + 1]->setValue(val);
-                pCharacteristic[i + 1]->notify();
+                pCharacteristics[i + 1]->setValue(val);
+                pCharacteristics[i + 1]->notify();
                 Serial.print("debug: set value of characteristic number = ");
                 Serial.println(i + 1);
             }
@@ -64,8 +71,8 @@ void KikurageBLEServer::loop9axisSensor() {
 }
 
 void KikurageBLEServer::setupWiFiToPeripheral(String jsonString) {
-    pCharacteristic[1]->setValue(jsonString);
-    pCharacteristic[1]->notify();
+    pCharacteristics[1]->setValue(jsonString);
+    pCharacteristics[1]->notify();
     delay(100);
     Serial.print("debug: setup characteristic -> ");
     Serial.println(jsonString);

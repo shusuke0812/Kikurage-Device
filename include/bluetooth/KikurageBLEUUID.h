@@ -7,7 +7,7 @@ const char *SERVICE_UUID = "65609901-b6ed-45cc-b8af-b4055a9b7666";
 const char *CHARACTERISTICS[4] = {
     "65609902-b6ed-45cc-b8af-b4055a9b7666", // stop wifi scan
     "65609903-b6ed-45cc-b8af-b4055a9b7666", // wifi read
-    "65609904-b6ed-45cc-b8af-b4055a9b7666", // wifi write
+    "65609904-b6ed-45cc-b8af-b4055a9b7666", // wifi setting
     "65609905-b6ed-45cc-b8af-b4055a9b7666", // debug
 };
 
