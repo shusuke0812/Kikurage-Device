@@ -71,9 +71,19 @@ void KikurageBLEServer::loop9axisSensor() {
 }
 
 void KikurageBLEServer::sendWiFiToCentral(String jsonString) {
-    pCharacteristics[1]->setValue(jsonString);
-    pCharacteristics[1]->notify();
+    pCharacteristics[2]->setValue(jsonString);
+    pCharacteristics[2]->notify();
     delay(100);
     Serial.print("debug: setup characteristic -> ");
     Serial.println(jsonString);
+}
+
+void KikurageBLEServer::sendWiFiSettingCompletionToCentral(KikurageBLECompletion completion) {
+    KikurageBLECompletionHandler completionHandler;
+    String message = completionHandler.getMessage(completion);
+
+    pCharacteristics[3]->setValue(message);
+    pCharacteristics[3]->notify();
+    delay(100);
+    Serial.println("debug: complete WiFi setting");
 }
