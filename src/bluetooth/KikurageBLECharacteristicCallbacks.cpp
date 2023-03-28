@@ -35,8 +35,6 @@ void KikurageBLEWiFiSettingCharacteristicCallbacks::onWrite(NimBLECharacteristic
 
     KikurageWiFiSetting wifiSetting;
     wifiSetting.setupWiFi(ssid, password);
-
-    Serial.println("debug: called wifi setting");
 }
 
 void KikurageBLEWiFiSettingCharacteristicCallbacks::onRead(NimBLECharacteristic *pCharacteristic) { 

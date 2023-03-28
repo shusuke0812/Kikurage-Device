@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <M5Stack.h>
 
-#include "bluetooth/KikurageBLEServer.h"
 #include "bluetooth/KikurageBLEMessage.h"
 #include "bluetooth/KikurageBLEState.h"
 
@@ -9,7 +8,6 @@
 #include "wifi/WiFiScanner.h"
 #include "wifi/KikurageWiFi.h"
 
-KikurageBLEServer kBLEServer;
 WiFiScanner wifiScanner;
 
 // put your setup code here, to run once
@@ -34,6 +32,7 @@ void loop() {
             kBLEServer.sendWiFiToCentral(jsonString);
         }
     }
+    timer.run();
     delay(1000);
     M5.update();
 }

@@ -4,6 +4,8 @@
 
 #include "utility/MPU9250.h"
 
+KikurageBLEServer kBLEServer;
+
 NimBLECharacteristic *pCharacteristics[4] = {};
 NimBLEServer *pServer = NULL;
 
@@ -36,13 +38,13 @@ void KikurageBLEServer::initialize() {
     pCharacteristics[1]->setCallbacks(new KikurageBLEWiFiSettingCharacteristicCallbacks());
 
     // Characteristic( for result of scanning wifi and completion )
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 2; i++) {
         pCharacteristics[i + 2] = pService->createCharacteristic(
             CHARACTERISTICS[i + 2],
             NIMBLE_PROPERTY::READ |
             NIMBLE_PROPERTY::NOTIFY
         );
-        pCharacteristics[i + 1]->setCallbacks(new KikurageBLECharacteristicCallbacks());
+        pCharacteristics[i + 2]->setCallbacks(new KikurageBLECharacteristicCallbacks());
     }
 
     // Advertising
@@ -87,5 +89,6 @@ void KikurageBLEServer::sendWiFiSettingCompletionToCentral(KikurageBLECompletion
     pCharacteristics[3]->setValue(jsonString);
     pCharacteristics[3]->notify();
     delay(100);
-    Serial.println("debug: complete WiFi setting");
+    Serial.print("debug: complete WiFi setting -> ");
+    Serial.println(jsonString);
 }

@@ -15,4 +15,6 @@ class KikurageBLEServer {
     void sendWiFiSettingCompletionToCentral(KikurageBLECompletion completion);
 };
 
+extern KikurageBLEServer kBLEServer;
+
 #endif // _KikurageBLEServer_H_
