@@ -5,7 +5,7 @@ Kikurage Cultivation Device
 
 ### Setup
 
-- Install PlatformIO by VSCOde plugin
+- Install PlatformIO by VSCode plugin
 - Install M5Stack libraries
   - PIO Home > Libraries > M5Stack > Add Project
   - After that theses are set in /.pio/libdeps
