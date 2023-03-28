@@ -80,9 +80,11 @@ void KikurageBLEServer::sendWiFiToCentral(String jsonString) {
 
 void KikurageBLEServer::sendWiFiSettingCompletionToCentral(KikurageBLECompletion completion) {
     KikurageBLECompletionHandler completionHandler;
-    String message = completionHandler.getMessage(completion);
+    BLECompletionMessage completionMessage = completionHandler.getMessage(completion);
 
-    pCharacteristics[3]->setValue(message);
+    String jsonString = getBLECompletionMessageJSONString(completionMessage);
+
+    pCharacteristics[3]->setValue(jsonString);
     pCharacteristics[3]->notify();
     delay(100);
     Serial.println("debug: complete WiFi setting");

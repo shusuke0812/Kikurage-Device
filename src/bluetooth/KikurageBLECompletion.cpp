@@ -1,12 +1,24 @@
 #include "bluetooth/KikurageBLECompletion.h"
 
-String KikurageBLECompletionHandler::getMessage(KikurageBLECompletion completion) {
+BLECompletionMessage  KikurageBLECompletionHandler::getMessage(KikurageBLECompletion completion) {
     switch (completion) {
     case KikurageBLECompletion::WiFiSettingSuccess:
-        return "wifi setting success";
+        return { "success", "wifi setting success" };
     case KikurageBLECompletion::WiFiSettingFail:
-        return "wifi setting fail";
+        return { "fail", "wifi setting fail" };
     default:
-        return "message not found";
+        return { "fail", "message not found" };
     }
+}
+
+String getBLECompletionMessageJSONString(BLECompletionMessage message) {
+    DynamicJsonDocument doc(128);
+
+    doc["type"] = message.type;
+    doc["message"] = message.message;
+
+    String output;
+    serializeJson(doc, output);
+
+    return output;
 }
