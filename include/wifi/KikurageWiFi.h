@@ -15,4 +15,4 @@ struct KikurageWiFi {
 
 String getKikurageWiFiJSONString(KikurageWiFi kikruageWiFi);
 
-#endif // _KkikurageWiFi_H_
+#endif // _KikurageWiFi_H_
