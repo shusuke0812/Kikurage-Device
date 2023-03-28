@@ -5,9 +5,9 @@ BLECompletionMessage  KikurageBLECompletionHandler::getMessage(KikurageBLEComple
     case KikurageBLECompletion::WiFiSettingSuccess:
         return { "success", "wifi setting success" };
     case KikurageBLECompletion::WiFiSettingFail:
-        return { "fail", "wifi setting fail" };
+        return { "error", "wifi setting fail" };
     default:
-        return { "fail", "message not found" };
+        return { "error", "message not found" };
     }
 }
 

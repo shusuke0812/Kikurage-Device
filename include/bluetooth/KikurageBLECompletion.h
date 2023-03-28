@@ -10,7 +10,7 @@ enum class KikurageBLECompletion {
 };
 
 struct BLECompletionMessage {
-    String type; // success or fail
+    String type; // success or error
     String message;
 };
 
