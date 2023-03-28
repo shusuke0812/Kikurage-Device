@@ -31,7 +31,7 @@ void loop() {
 
         for (int i = 0; i < wifiListCount; i++) {
             String jsonString = getKikurageWiFiJSONString(wifiList[i]);
-            kBLEServer.setupWiFiToPeripheral(jsonString);
+            kBLEServer.sendWiFiToCentral(jsonString);
         }
     }
     delay(1000);

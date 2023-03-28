@@ -70,7 +70,7 @@ void KikurageBLEServer::loop9axisSensor() {
     }
 }
 
-void KikurageBLEServer::setupWiFiToPeripheral(String jsonString) {
+void KikurageBLEServer::sendWiFiToCentral(String jsonString) {
     pCharacteristics[1]->setValue(jsonString);
     pCharacteristics[1]->notify();
     delay(100);

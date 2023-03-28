@@ -11,7 +11,7 @@ class KikurageBLEServer {
     public:
     void initialize();
     void loop9axisSensor();
-    void setupWiFiToPeripheral(String jsonString);
+    void sendWiFiToCentral(String jsonString);
 };
 
 #endif // _KikurageBLEServer_H_
