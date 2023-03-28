@@ -15,7 +15,7 @@ String getBLECompletionMessageJSONString(BLECompletionMessage message) {
     DynamicJsonDocument doc(128);
 
     doc["type"] = message.type;
-    doc["message"] = message.message;
+    doc["description"] = message.description;
 
     String output;
     serializeJson(doc, output);

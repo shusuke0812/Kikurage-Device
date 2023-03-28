@@ -11,7 +11,7 @@ enum class KikurageBLECompletion {
 
 struct BLECompletionMessage {
     String type; // success or error
-    String message;
+    String description;
 };
 
 class KikurageBLECompletionHandler {
