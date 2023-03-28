@@ -4,7 +4,9 @@
 
 #include "utility/MPU9250.h"
 
-NimBLECharacteristic *pCharacteristic[4] = {};
+KikurageBLEServer kBLEServer;
+
+NimBLECharacteristic *pCharacteristics[4] = {};
 NimBLEServer *pServer = NULL;
 
 MPU9250 IMU;
@@ -21,23 +23,30 @@ void KikurageBLEServer::initialize() {
     
     NimBLEService *pService = pServer->createService(SERVICE_UUID);
     
-    // Characteristic( for display color )
-    pCharacteristic[0] = pService->createCharacteristic(
+    // Characteristic( for stop wifi scan )
+    pCharacteristics[0] = pService->createCharacteristic(
         CHARACTERISTICS[0],
         NIMBLE_PROPERTY::WRITE
     );
-    pCharacteristic[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
+    pCharacteristics[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
 
-    // Characteristic( for 9 axis sensor )
-    for (int i = 0; i < 3; i++) {
-        pCharacteristic[i + 1] = pService->createCharacteristic(
-            CHARACTERISTICS[i + 1],
+    // Characteristic( for setting wifi )
+    pCharacteristics[1] = pService->createCharacteristic(
+        CHARACTERISTICS[1],
+        NIMBLE_PROPERTY::WRITE
+    );
+    pCharacteristics[1]->setCallbacks(new KikurageBLEWiFiSettingCharacteristicCallbacks());
+
+    // Characteristic( for result of scanning wifi and completion )
+    for (int i = 0; i < 2; i++) {
+        pCharacteristics[i + 2] = pService->createCharacteristic(
+            CHARACTERISTICS[i + 2],
             NIMBLE_PROPERTY::READ |
             NIMBLE_PROPERTY::NOTIFY
         );
-        pCharacteristic[i + 1]->setCallbacks(new KikurageBLECharacteristicCallbacks());
+        pCharacteristics[i + 2]->setCallbacks(new KikurageBLECharacteristicCallbacks());
     }
-    
+
     // Advertising
     pService->start();
     NimBLEAdvertising *pAdvertising = NimBLEDevice::getAdvertising();
@@ -48,17 +57,38 @@ void KikurageBLEServer::initialize() {
 
 /* BLE sample setting value to characteristic */
 void KikurageBLEServer::loop9axisSensor() {
-    if (isConnected) {
+    if (isBLEConnected) {
         if (IMU.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
             IMU.readAccelData(IMU.accelCount);
             IMU.getAres();
             for (int i = 0; i < 3; i++) {
                 float val = IMU.accelCount[i] * IMU.aRes;
-                pCharacteristic[i + 1]->setValue(val);
-                pCharacteristic[i + 1]->notify();
+                pCharacteristics[i + 1]->setValue(val);
+                pCharacteristics[i + 1]->notify();
                 Serial.print("debug: set value of characteristic number = ");
                 Serial.println(i + 1);
             }
         }
     }
+}
+
+void KikurageBLEServer::sendWiFiToCentral(String jsonString) {
+    pCharacteristics[2]->setValue(jsonString);
+    pCharacteristics[2]->notify();
+    delay(100);
+    Serial.print("debug: setup characteristic -> ");
+    Serial.println(jsonString);
+}
+
+void KikurageBLEServer::sendWiFiSettingCompletionToCentral(KikurageBLECompletion completion) {
+    KikurageBLECompletionHandler completionHandler;
+    BLECompletionMessage completionMessage = completionHandler.getMessage(completion);
+
+    String jsonString = getBLECompletionMessageJSONString(completionMessage);
+
+    pCharacteristics[3]->setValue(jsonString);
+    pCharacteristics[3]->notify();
+    delay(100);
+    Serial.print("debug: complete WiFi setting -> ");
+    Serial.println(jsonString);
 }

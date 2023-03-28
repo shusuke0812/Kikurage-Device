@@ -3,9 +3,17 @@
 
 #include <NimBLEDevice.h>
 #include <M5Stack.h>
-#include "sample/Color.h"
+#include <ArduinoJson.h>
+#include "wifi/KikurageWiFiState.h"
+#include "wifi/KikurageWiFiSetting.h"
 
 class KikurageBLECharacteristicCallbacks: public NimBLECharacteristicCallbacks {
+    public:
+    void onWrite(NimBLECharacteristic *pCharacteristic);
+    void onRead(NimBLECharacteristic *pCharacteristic);
+};
+
+class KikurageBLEWiFiSettingCharacteristicCallbacks: public NimBLECharacteristicCallbacks {
     public:
     void onWrite(NimBLECharacteristic *pCharacteristic);
     void onRead(NimBLECharacteristic *pCharacteristic);

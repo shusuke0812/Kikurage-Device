@@ -62,4 +62,5 @@ https://github.com/shusuke0812/Kikurage-Device/issues/1#issuecomment-1446436848
 
 ### Reference
 
-- [How to create header and source files](https://skpme.com/621/)
+- [How to create header and source files #1](https://skpme.com/621/)
+- [How to create header and source files #2](https://qiita.com/MoriokaReimen/items/7c83ebd0fbae44d8532d)
