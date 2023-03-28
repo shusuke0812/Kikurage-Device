@@ -28,22 +28,22 @@ void KikurageBLEServer::initialize() {
     );
     pCharacteristics[0]->setCallbacks(new KikurageBLECharacteristicCallbacks());
 
-    // Characteristic( for result of scanning wifi )
+    // Characteristic( for setting wifi )
+    pCharacteristics[1] = pService->createCharacteristic(
+        CHARACTERISTICS[1],
+        NIMBLE_PROPERTY::WRITE
+    );
+    pCharacteristics[1]->setCallbacks(new KikurageBLEWiFiSettingCharacteristicCallbacks());
+
+    // Characteristic( for result of scanning wifi and completion )
     for (int i = 0; i < 1; i++) {
-        pCharacteristics[i + 1] = pService->createCharacteristic(
-            CHARACTERISTICS[i + 1],
+        pCharacteristics[i + 2] = pService->createCharacteristic(
+            CHARACTERISTICS[i + 2],
             NIMBLE_PROPERTY::READ |
             NIMBLE_PROPERTY::NOTIFY
         );
         pCharacteristics[i + 1]->setCallbacks(new KikurageBLECharacteristicCallbacks());
     }
-
-    // Characteristic( for setting wifi )
-    pCharacteristics[2] = pService->createCharacteristic(
-        CHARACTERISTICS[2],
-        NIMBLE_PROPERTY::WRITE
-    );
-    pCharacteristics[2]->setCallbacks(new KikurageBLEWiFiSettingCharacteristicCallbacks());
 
     // Advertising
     pService->start();
